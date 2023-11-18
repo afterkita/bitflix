@@ -3,9 +3,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/data/genres.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/settings/config.php';
 
 $genres_array = getGenres();
+$setting = getSettings();
 
-$main = 'Главная';
-$preference = 'Избранное';
 ?>
 
 <link rel="stylesheet" href="../../css/reset.css">
@@ -16,8 +15,8 @@ $preference = 'Избранное';
 </a>
 <nav class="menu">
     <ul>
-        <li class="menu-item"><a href="#" class="menu-link"><?= $main ?></a></li>
-        <li class="menu-item"><a href="#" class="menu-link"><?= $preference ?></a></li>
+        <li class="menu-item"><a href="<?php echo ($setting['main_page_config']['link']) ?>" class="menu-link"><?= $setting['main_page_config']['title'] ?></a></li>
+        <li class="menu-item"><a href="../../public/chosen.php" class="menu-link"><?= $setting['chosen_page_config']['title'] ?></a></li>
         <?php
             foreach ($genres_array as $genre_en => $genre_ru)
             {
