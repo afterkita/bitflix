@@ -2,4 +2,4 @@
 echo 'Тут ничего нет! Но будет Избранное';
 
 ?>
-<a href="index.php">На Главную</a>
+<a href="http://localhost:63342/structure_pr/public/index.php">На Главную</a>
