@@ -21,7 +21,7 @@ $setting = getSettings();
             foreach ($genres_array as $genre_en => $genre_ru)
             {
         ?>
-        <li class="menu-item"><a href="#" class="menu-link"><?= $genre_ru ?></a></li>
+        <li class="menu-item"><a href="http://localhost:63342/structure_pr/public/index.php?genre_id=<?= $genre_ru ?>" class="menu-link"><?= $genre_ru ?></a></li>
 <?php } ?>
     </ul>
 </nav>

@@ -1,11 +1,10 @@
 <?php
-var_dump($_GET);
+//var_dump($_GET);
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/services/card_data.php';
 if (isset($_GET['film_id']))
 {
     $film = getArrElemForCard((int)$_GET['film_id']);
-    //var_dump($film);
 }
 ?>
 
@@ -15,8 +14,7 @@ if (isset($_GET['film_id']))
     <?php
     require_once $_SERVER['DOCUMENT_ROOT'] . '/views/components/head.php';
     ?>
-    <link rel="stylesheet" href="<?=$_SERVER['DOCUMENT_ROOT'] .'/css/reset.css'?>"
-    <link rel="stylesheet" href= "<?=$_SERVER['DOCUMENT_ROOT'] .'/structure_pr/css/reset.css'?>"
+
 </head>
 <body class="body">
 <div class="wrapper">
@@ -48,17 +46,16 @@ if (isset($_GET['film_id']))
                     <img src='<?="http://localhost:63342/structure_pr".$film['image_adres'] ?>' class="detail-item-image">
                     <div class="detail-item-content">
                         <div class="movie-raiting">
-                            <span class="fa fa-square checked "></span>
-                            <span class="fa fa-square checked"></span>
-                            <span class="fa fa-square checked"></span>
-                            <span class="fa fa-square checked"></span>
-                            <span class="fa fa-square checked"></span>
-                            <span class="fa fa-square checked"></span>
-                            <span class="fa fa-square checked"></span>
-                            <span class="fa fa-square no-checked"></span>
-                            <span class="fa fa-square no-checked"></span>
-                            <span class="fa fa-square no-checked"></span>
-                            <div class="movie-raiting-cycle"><p class="font-for-standart-button" style="font-size: 20px">7<?= $film['rating']?></p></div>
+                            <?php
+                            for ($i = 0; $i<10 ;$i++)
+                            {
+                                if ($i < (int)$film['rating']){?>
+                                    <div class="raiting-active"></div>
+                                <?php }
+                                else{ ?>
+                                    <div class="raiting-non-active"></div>
+                                <?php } } ?>
+                            <div class="movie-raiting-cycle"><p class="font-for-standart-button" style="font-size: 20px"><?= $film['rating']?></p></div>
                         </div>
                         <div class="about-movie">
                             <div class="ab1"><p class="ser-font">О фильме</p></div>

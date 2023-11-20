@@ -1,6 +1,15 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/data/movie.php';
-function getArrElemForCard($select_film_id = 1){
+function getRatingRectangle($select_film_id){
+$movie_array = getMovie();
+foreach ($movie_array as $movie)
+{
+    if($movie['id'] === $select_film_id) {
+        return (int)$movie['rating'];
+    }
+}
+}
+function getArrElemForCard($select_film_id){
     $movie_array = getMovie();
     foreach ($movie_array as $movie)
     {
@@ -8,17 +17,17 @@ function getArrElemForCard($select_film_id = 1){
         {
             $element_arr = [
                 'id' => $select_film_id,
-                'image_adres'=> '/data/images/'.(string)$select_film_id.".jpg",
+                'image_adres'=> 'http://localhost:63342/structure_pr/data/images/'.(string)$select_film_id.".jpg",
                 'title' => $movie['title'],
                 'original-title' => $movie['original-title'],
                 'description' => mb_strimwidth(getOneElem($select_film_id,'description'),0,220,"..."),
                 'duration' => (string)$movie['duration'].'мин.',
                 'genres' => implode(',',array_slice($movie['genres'], 0,3)),
                 'cast' => implode(', ',$movie['cast']),
-                'director' => implode(', ',$movie['director']),
+                'director' => $movie['director'],
                 'age-restriction' => $movie['age-restriction'],
                 'release-date' => $movie['release-date'],
-                'rating' => $movie['rating'],
+                'rating' => ($movie['rating']),
                 'full-description' => $movie['description']
             ];
             return $element_arr;

@@ -4,12 +4,19 @@
 //todo Переписать эту часть кода, так чтобы подключался только /card_data
 require_once $_SERVER['DOCUMENT_ROOT'] . '/services/card_data.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/data/movie.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/data/genres.php';
+
+$page_genre = isset($_GET['genre_id'])? $_GET['genre_id']: 'null';
+//echo $page_genre;
 $movies = getMovie();
+$genres = getGenres();
 
 foreach ($movies as $movie)
 {
-    //echo $movie['id'];
 $card_arr = getArrElemForCard($movie['id']);
+$film_genres = implode(getOneElem($movie['id'],'genres'));
+    if (($page_genre ==='null') || (strpos($film_genres, $page_genre) !== false))
+    {
 ?>
 
 <link rel="stylesheet" href="../../css/reset.css">
@@ -32,4 +39,4 @@ $card_arr = getArrElemForCard($movie['id']);
         </div>
     </div>
 </div>
-<?php }?> </div>
+<?php }}?> </div>

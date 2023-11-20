@@ -19,9 +19,9 @@
         ?>
     </header>
     <header class="content">
-        
+
         <?php
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/views/components/smal_cards_area.php'
+        require_once $_SERVER['DOCUMENT_ROOT'] . '/views/components/smal_cards_area.php';
         ?>
     </header>
 
