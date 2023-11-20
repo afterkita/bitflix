@@ -1,11 +1,15 @@
 <div class="area-small-cards" >
 <?php
+
+//todo Переписать эту часть кода, так чтобы подключался только /card_data
 require_once $_SERVER['DOCUMENT_ROOT'] . '/services/card_data.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/data/movie.php';
-$movie = getMovie();
-for ($i = 1; $i <= (int)count($movie);$i++)
+$movies = getMovie();
+
+foreach ($movies as $movie)
 {
-$card_arr = getArrElemForCard($i);
+    //echo $movie['id'];
+$card_arr = getArrElemForCard($movie['id']);
 ?>
 
 <link rel="stylesheet" href="../../css/reset.css">
@@ -24,7 +28,7 @@ $card_arr = getArrElemForCard($i);
         <p class="font-for-card-3" style="text-transform: none"><?= $card_arr["duration"] ?></p>
         <p class="font-for-card-3"><?= $card_arr["genres"] ?></p>
         <div class="movie-item-hover">
-            <button class="info-button" ><a style="text-decoration: none" href="../../public/detail.php?film_id=<?= $card_arr["id"] ?>" ><p class="font-for-info-button">Подробнее</p></a></button>
+            <button class="info-button" ><a style="text-decoration: none" href="http://localhost:63342/structure_pr/public/detail.php?film_id=<?= $card_arr["id"] ?>" ><p class="font-for-info-button">Подробнее</p></a></button>
         </div>
     </div>
 </div>

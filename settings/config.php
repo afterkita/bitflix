@@ -1,10 +1,12 @@
 <?php
+$root = 'http://localhost:63342';
+
 $settings = [
     'main_page_config' => [
-        'link' => (string)($_SERVER['DOCUMENT_ROOT'].'/public/index.php'),
+        'link' => (string)$root.'/public/index.php',
         'title' => 'Главная'],
     'chosen_page_config' => [
-        'link' => (string)('chosen.php'),
+        'link' => (string)$root.'/public/detail.php',
         'title' => 'Избранное'],
     ];
 function getSettings()
