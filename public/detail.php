@@ -4,7 +4,12 @@
 require_once $_SERVER['DOCUMENT_ROOT'] . '/services/card_data.php';
 if (isset($_GET['film_id']))
 {
+
     $film = getArrElemForCard((int)$_GET['film_id']);
+}
+else
+{
+    $film = 1;
 }
 ?>
 
