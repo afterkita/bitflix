@@ -43,7 +43,7 @@ if (isset($_GET['film_id']))
                     </div>
                 </div>
                 <div class="detail-item-filling">
-                    <img src='<?="http://localhost:63342/structure_pr".$film['image_adres'] ?>' class="detail-item-image">
+                    <img src='<?=$film['image_adres'] ?>' class="detail-item-image">
                     <div class="detail-item-content">
                         <div class="movie-raiting">
                             <?php
@@ -68,7 +68,7 @@ if (isset($_GET['film_id']))
                         </div>
                         <div class="movie-description">
                             <p class="ser-font">Описание</p>
-                            <p class="ser-min-font" style="padding-top: 10px; font-size: 18px"><?= $film['full-description']?></p>
+                            <p class="ser-min-font" style="padding-top: 10px; font-size: 18px;"><?= $film['full-description']?></p>
                         </div>
                     </div>
 

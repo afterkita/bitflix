@@ -10,7 +10,7 @@
         <div class="detail-item-header">
             <div class="detail-item-header-main-name">
                 <p class="main-name-font">Головоломка (2015)</p>
-                <img src="../../data/images/add_to_pref_2.png">
+                <img src="http://localhost:63342/structure_pr/data/images/add_to_pref_2.png">
             </div>
             <div class="detail-item-header-second-name">
                 <p class="sure-name-font">Inside Out</p>

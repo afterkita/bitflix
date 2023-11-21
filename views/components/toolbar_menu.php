@@ -7,5 +7,5 @@
     <p class="font-for-standart-button">Искать</p>
 </div>
 <div class="add-button">
-    <p class="font-for-standart-button">Добавить Фильм</p>
+    <a href="../../public/add_film.php" style="text-decoration: none"><p class="font-for-standart-button">Добавить Фильм</p></a>
 </div>
